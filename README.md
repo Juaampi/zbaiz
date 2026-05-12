@@ -7,7 +7,7 @@ Landing page estática para una empresa de estructuras metálicas y herrería de
 - `index.html`
 - `styles.css`
 - `script.js`
-- `assets/logo.jpeg`
+- `assets/logo3.png`
 
 ## Deploy en Netlify
 
