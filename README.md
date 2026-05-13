@@ -1,4 +1,4 @@
-# Sbaizmetal
+# SbaizMetal
 
 Landing page estática para una empresa de estructuras metálicas y herrería de obra.
 

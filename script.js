@@ -40,3 +40,29 @@ if ("IntersectionObserver" in window && revealElements.length > 0) {
 } else {
   revealElements.forEach((element) => element.classList.add("is-visible"));
 }
+
+const sliders = document.querySelectorAll("[data-slider]");
+
+sliders.forEach((slider) => {
+  const slides = slider.querySelectorAll("[data-slide]");
+  const controls = slider.querySelectorAll("[data-slide-to]");
+
+  if (slides.length === 0 || controls.length === 0) {
+    return;
+  }
+
+  const setActiveSlide = (index) => {
+    slides.forEach((slide, slideIndex) => {
+      slide.classList.toggle("is-active", slideIndex === index);
+    });
+
+    controls.forEach((control, controlIndex) => {
+      control.classList.toggle("is-active", controlIndex === index);
+      control.setAttribute("aria-pressed", String(controlIndex === index));
+    });
+  };
+
+  controls.forEach((control, index) => {
+    control.addEventListener("click", () => setActiveSlide(index));
+  });
+});

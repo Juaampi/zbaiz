@@ -339,6 +339,11 @@ a {
   gap: 1rem;
 }
 
+.solutions-slider {
+  display: grid;
+  gap: 1.25rem;
+}
+
 .solution-card,
 .service-card,
 .contact-panel {
@@ -347,6 +352,13 @@ a {
   border: 1px solid rgba(17, 17, 17, 0.08);
   border-radius: 1.4rem;
   box-shadow: var(--shadow);
+}
+
+.solution-card {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.25s ease;
 }
 
 .solution-card img,
@@ -388,6 +400,57 @@ a {
 .solution-copy a:hover,
 .service-card-body a:hover {
   color: var(--accent-hover);
+}
+
+.slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.slider-dot {
+  width: 2.7rem;
+  height: 2.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.slider-dot:hover,
+.slider-dot:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(17, 17, 17, 0.2);
+  color: var(--text);
+}
+
+.slider-dot.is-active {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+@media (max-width: 959px) {
+  .solutions-slider .solution-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .solutions-slider .solution-card {
+    display: none;
+  }
+
+  .solutions-slider .solution-card.is-active {
+    display: block;
+  }
 }
 
 .service-grid {
@@ -672,6 +735,10 @@ a {
 
   .solution-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .solutions-slider .slider-controls {
+    justify-content: flex-end;
   }
 
   .service-grid {
